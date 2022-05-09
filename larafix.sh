@@ -29,7 +29,8 @@ help() {
 # Executes the following artisan commands: optimize, migrate:fresh --seed and serve
 default() {
   php artisan optimize
-  migrateAndServe
+  migrate
+  serve
 }
 
 clear() {
