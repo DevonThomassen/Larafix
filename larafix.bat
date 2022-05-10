@@ -47,7 +47,6 @@ GOTO :EOF
   ECHO Migrate:     [-m ^| --migrate ^| migrate]  Drops the database and create it again + seeding
   ECHO Serve:       [-s ^| --serve ^| serve]      Serve the application
   ECHO Wipe:        [-w ^| --wipe ^| wipe]        Drops all tables
-  ECHO %empty%
   ECHO You can combine flags as the following example:
   ECHO Example: larafix -dump -s
   ECHO This example will execute composer dump-autoload, artisan optimize and artisan serve
