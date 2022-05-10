@@ -21,7 +21,7 @@ help() {
   echo -e "${CYAN}Serve${NC}: \t\t[-s | --serve | serve]\t\t Serve the application"
   echo -e "${CYAN}Wipe${NC}: \t\t[-w | --wipe | wipe]\t\t Drops all tables"
   echo -e "\nYou can combine flags as the following example:"
-  echo -e "Example: \t$ bash help.sh -dump -s"
+  echo -e "Example: \t$ bash larafix.sh -dump -s"
   echo -e "This example will execute ${PURPLE}composer dump-autoload${NC}, ${PURPLE}artisan optimize${NC} and ${PURPLE}artisan serve${NC}"
 }
 
