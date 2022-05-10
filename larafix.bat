@@ -38,23 +38,23 @@ IF "%1"=="--clear" GOTO Clear
 IF "%1"=="clear" GOTO Clear
 
 :: Drop
-IF "%1"=="-d" GOTO drop
-IF "%1"=="--drop" GOTO drop
-IF "%1"=="drop" GOTO drop
+IF "%1"=="-d" GOTO Drop
+IF "%1"=="--drop" GOTO Drop
+IF "%1"=="drop" GOTO Drop
 
 ::Dumpimize
-IF "%1"=="--dump" GOTO dumpimize
-IF "%1"=="dump" GOTO dumpimize
+IF "%1"=="--dump" GOTO Dumpimize
+IF "%1"=="dump" GOTO Dumpimize
 
 ::Migrate
-IF "%1"=="-m" GOTO migrate
-IF "%1"=="--migrate" GOTO migrate
-IF "%1"=="migrate" GOTO migrate
+IF "%1"=="-m" GOTO Migrate
+IF "%1"=="--migrate" GOTO Migrate
+IF "%1"=="migrate" GOTO Migrate
 
 ::Serve
-IF "%1"=="-s" GOTO serve
-IF "%1"=="--serve" GOTO serve
-IF "%1"=="serve" GOTO serve
+IF "%1"=="-s" GOTO Serve
+IF "%1"=="--serve" GOTO Serve
+IF "%1"=="serve" GOTO Serve
 
 GOTO :EOF
 
