@@ -42,6 +42,11 @@ IF "%1"=="-d" GOTO Drop
 IF "%1"=="--drop" GOTO Drop
 IF "%1"=="drop" GOTO Drop
 
+:: Wipe (same as drop)
+IF "%1"=="-w" GOTO Drop
+IF "%1"=="--wipe" GOTO Drop
+IF "%1"=="wipe" GOTO Drop
+
 ::Dumpimize
 IF "%1"=="--dump" GOTO Dumpimize
 IF "%1"=="dump" GOTO Dumpimize
