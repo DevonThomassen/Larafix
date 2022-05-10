@@ -74,14 +74,12 @@ GOTO :EOF
   ECHO This example will execute composer dump-autoload, artisan optimize and artisan serve
   SHIFT
   GOTO :EOF
-
 :Default
   CALL php artisan optimize
   CALL php artisan migrate:fresh --seed
   CALL php artisan serve
   SHIFT 
   GOTO Loop
-
 :Clear
   CALL php artisan route:clear
   CALL php artisan config:clear
@@ -89,23 +87,19 @@ GOTO :EOF
   CALL php artisan cache:clear
   SHIFT
   GOTO Loop
-
 :Drop
   CALL php artisan db:wipe
   SHIFT
   GOTO Loop
-
 :Dumpimize
   CALL composer dump-autoload
   CALL php artisan optimize
   SHIFT
   GOTO Loop
-
 :Migrate
   CALL php artisan migrate:fresh --seed
   SHIFT
   GOTO Loop
-
 :Serve
   CALL php artisan serve
   SHIFT
