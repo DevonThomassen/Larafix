@@ -107,6 +107,6 @@ GOTO :EOF
   GOTO Loop
 
 :Serve
-  php artisan serve
+  CALL php artisan serve
   SHIFT
   GOTO Loop
