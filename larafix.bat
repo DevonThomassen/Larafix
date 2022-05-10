@@ -28,33 +28,33 @@ IF "%1"=="" GOTO Default
 :Loop
 IF "%1"=="" GOTO :EOF
 :: Help
-IF "%1"=="-h" GOTO help
+IF "%1"=="-h" GOTO Help
 IF "%1"=="--help" GOTO Help
 IF "%1"=="help" GOTO Help
 
 :: Clear
-IF "%1"=="-c" GOTO clear
-IF "%%A"=="--clear" GOTO clear
-IF "%%A"=="clear" GOTO clear
+IF "%1"=="-c" GOTO Clear
+IF "%1"=="--clear" GOTO Clear
+IF "%1"=="clear" GOTO Clear
 
 :: Drop
-IF "%%A"=="-d" GOTO drop
-IF "%%A"=="--drop" GOTO drop
-IF "%%A"=="drop" GOTO drop
+IF "%1"=="-d" GOTO drop
+IF "%1"=="--drop" GOTO drop
+IF "%1"=="drop" GOTO drop
 
 ::Dumpimize
-IF "%%A"=="--dumpimize" GOTO dumpimize
-IF "%%A"=="dumpimize" GOTO dumpimize
+IF "%1"=="--dump" GOTO dumpimize
+IF "%1"=="dump" GOTO dumpimize
 
 ::Migrate
-IF "%%A"=="-m" GOTO migrate
-IF "%%A"=="--migrate" GOTO migrate
-IF "%%A"=="migrate" GOTO migrate
+IF "%1"=="-m" GOTO migrate
+IF "%1"=="--migrate" GOTO migrate
+IF "%1"=="migrate" GOTO migrate
 
 ::Serve
-IF "%%A"=="-s" GOTO serve
-IF "%%A"=="--serve" GOTO serve
-IF "%%A"=="serve" GOTO serve
+IF "%1"=="-s" GOTO serve
+IF "%1"=="--serve" GOTO serve
+IF "%1"=="serve" GOTO serve
 
 GOTO :EOF
 
