@@ -72,7 +72,7 @@ GOTO :EOF
   ECHO Drop:        [-d ^| --drop ^| drop]            Drops all tables
   ECHO Dumpimize:   [--dump ^| dump]                 Executes composer dump-autoload and artisan optimize command
   ECHO Migrate:     [-m ^| --migrate ^| migrate]      Drops the database and create it again + seeding
-  ECHO Migrate:     [-o ^| --optimize ^| optimize]    Optimize project
+  ECHO Migrate:     [-o ^| --optimize ^| optimize]    Optimize the application
   ECHO Serve:       [-s ^| --serve ^| serve]          Serve the application
   ECHO Wipe:        [-w ^| --wipe ^| wipe]            Drops all tables
   ECHO You can combine flags as the following example:
