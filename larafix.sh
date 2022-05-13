@@ -40,6 +40,7 @@ help() {
   echo -e "${CYAN}Drop${NC}: \t\t[-d | --drop | drop]\t\t Drops all tables"
   echo -e "${CYAN}Dumpimize${NC}: \t[--dump | dump]\t\t\t Executes composer dump-autoload and artisan optimize command"
   echo -e "${CYAN}Migrate${NC}: \t[-m | --migrate | migrate]\t Drops the database and create it again + seeding"
+  echo -e "${CYAN}Optimize${NC}: \t[-o | --optimize | optimize]\t Optimizes the application"
   echo -e "${CYAN}Serve${NC}: \t\t[-s | --serve | serve]\t\t Serve the application"
   echo -e "${CYAN}Wipe${NC}: \t\t[-w | --wipe | wipe]\t\t Drops all tables"
   echo -e "\nYou can combine flags as the following example:"
@@ -75,6 +76,10 @@ migrate() {
   php artisan migrate:fresh --seed
 }
 
+optimize() {
+  php artisan optimize
+}
+
 serve() {
   php artisan serve
 }
@@ -89,6 +94,10 @@ else
       -h|--help | help)
       help
       exit 0
+      ;;
+    -o|--optimize | optimize)
+      optimize
+      shift
       ;;
     -m|--migrate | migrate)
       migrate
