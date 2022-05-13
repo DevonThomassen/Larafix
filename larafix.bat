@@ -56,6 +56,11 @@ IF "%1"=="-m" GOTO Migrate
 IF "%1"=="--migrate" GOTO Migrate
 IF "%1"=="migrate" GOTO Migrate
 
+::Migrate
+IF "%1"=="-o" GOTO Optimize
+IF "%1"=="--optimize" GOTO Optimize
+IF "%1"=="optimize" GOTO Optimize
+
 ::Serve
 IF "%1"=="-s" GOTO Serve
 IF "%1"=="--serve" GOTO Serve
@@ -67,13 +72,14 @@ GOTO :EOF
   ECHO Help menu:
   ECHO By default this script executes the following artisan commands: `optimize`, `migrate:fresh --seed` and `serve`
   ECHO To execute commands, use the following flags:
-  ECHO Help:        [-h ^| --help ^| help]        Help command
-  ECHO Clear:       [-c ^| --clear ^| clear]      Manual clears (routes, config, view and cache)
-  ECHO Drop:        [-d ^| --drop ^| drop]        Drops all tables
-  ECHO Dumpimize:   [--dump ^| dump]             Executes composer dump-autoload and artisan optimize command
-  ECHO Migrate:     [-m ^| --migrate ^| migrate]  Drops the database and create it again + seeding
-  ECHO Serve:       [-s ^| --serve ^| serve]      Serve the application
-  ECHO Wipe:        [-w ^| --wipe ^| wipe]        Drops all tables
+  ECHO Help:        [-h ^| --help ^| help]            Help command
+  ECHO Clear:       [-c ^| --clear ^| clear]          Manual clears (routes, config, view and cache)
+  ECHO Drop:        [-d ^| --drop ^| drop]            Drops all tables
+  ECHO Dumpimize:   [--dump ^| dump]                 Executes composer dump-autoload and artisan optimize command
+  ECHO Migrate:     [-m ^| --migrate ^| migrate]      Drops the database and create it again + seeding
+  ECHO Optimize:     [-o ^| --optimize ^| optimize]    Optimize the application
+  ECHO Serve:       [-s ^| --serve ^| serve]          Serve the application
+  ECHO Wipe:        [-w ^| --wipe ^| wipe]            Drops all tables
   ECHO You can combine flags as the following example:
   ECHO Example: larafix -dump -s
   ECHO This example will execute composer dump-autoload, artisan optimize and artisan serve
@@ -103,6 +109,10 @@ GOTO :EOF
   GOTO Loop
 :Migrate
   CALL php artisan migrate:fresh --seed
+  SHIFT
+  GOTO Loop
+:Optimize
+  CALL php artisan optimize
   SHIFT
   GOTO Loop
 :Serve
