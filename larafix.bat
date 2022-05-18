@@ -51,12 +51,16 @@ IF "%1"=="wipe" GOTO Drop
 IF "%1"=="--dump" GOTO Dumpimize
 IF "%1"=="dump" GOTO Dumpimize
 
+::Make
+IF "%1"=="--make" GOTO Make
+IF "%1"=="make" GOTO Make
+
 ::Migrate
 IF "%1"=="-m" GOTO Migrate
 IF "%1"=="--migrate" GOTO Migrate
 IF "%1"=="migrate" GOTO Migrate
 
-::Migrate
+::Optimize
 IF "%1"=="-o" GOTO Optimize
 IF "%1"=="--optimize" GOTO Optimize
 IF "%1"=="optimize" GOTO Optimize
@@ -76,8 +80,9 @@ GOTO :EOF
   ECHO Clear:       [-c ^| --clear ^| clear]          Manual clears (routes, config, view and cache)
   ECHO Drop:        [-d ^| --drop ^| drop]            Drops all tables
   ECHO Dumpimize:   [--dump ^| dump]                 Executes composer dump-autoload and artisan optimize command
+  ECHO Make:        [--make ^| make]                 Abbreviated make command. Ex: larafix make controller EpicController
   ECHO Migrate:     [-m ^| --migrate ^| migrate]      Drops the database and create it again + seeding
-  ECHO Optimize:     [-o ^| --optimize ^| optimize]    Optimize the application
+  ECHO Optimize:     [-o ^| --optimize ^| optimize]   Optimize the application
   ECHO Serve:       [-s ^| --serve ^| serve]          Serve the application
   ECHO Wipe:        [-w ^| --wipe ^| wipe]            Drops all tables
   ECHO You can combine flags as the following example:
@@ -107,6 +112,9 @@ GOTO :EOF
   CALL php artisan optimize
   SHIFT
   GOTO Loop
+:Make
+  CALL php artisan make:%2 %3
+  GOTO :EOF
 :Migrate
   CALL php artisan migrate:fresh --seed
   SHIFT
