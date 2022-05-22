@@ -39,6 +39,7 @@ help() {
   echo -e "${CYAN}Clear${NC}: \t\t[-c | --clear | clear]\t\t Manual clears (routes, config, view and cache)"
   echo -e "${CYAN}Drop${NC}: \t\t[-d | --drop | drop]\t\t Drops all tables"
   echo -e "${CYAN}Dumpimize${NC}: \t[--dump | dump]\t\t\t Executes composer dump-autoload and artisan optimize command"
+  echo -e "${CYAN}Make${NC}: \t\t[--make | make]\t\t\t Abbreviated make command. ${CYAN}Ex:${NC} ${PURPLE}larafix.sh make controller EpicController${NC}"
   echo -e "${CYAN}Migrate${NC}: \t[-m | --migrate | migrate]\t Drops the database and create it again + seeding"
   echo -e "${CYAN}Optimize${NC}: \t[-o | --optimize | optimize]\t Optimizes the application"
   echo -e "${CYAN}Serve${NC}: \t\t[-s | --serve | serve]\t\t Serve the application"
@@ -72,6 +73,10 @@ dumpimize() {
   php artisan optimize
 }
 
+make() {
+  php artisan make:$1 $2
+}
+
 migrate() {
   php artisan migrate:fresh --seed
 }
@@ -102,6 +107,10 @@ else
     -m|--migrate | migrate)
       migrate
       shift
+      ;;
+    --make | make)
+      make $2 $3     
+      exit 0;
       ;;
     -s|--serve | serve)
       serve
